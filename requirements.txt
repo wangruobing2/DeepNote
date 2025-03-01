@@ -1,0 +1,15 @@
+backoff
+elasticsearch==7.9.1
+faiss_cpu
+jieba
+numpy
+openai==1.57.4
+pandas
+sentence_transformers
+torch==2.4.0
+tqdm
+transformers==4.48.0
+pyyaml
+llama-index==0.9.30
+vllm==0.5.4
+trl==0.13.0

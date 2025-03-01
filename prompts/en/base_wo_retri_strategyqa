@@ -1,0 +1,4 @@
+Only give me 'yes' or 'no' as your answer and do not output any other words.
+
+Question: {query}
+Answer:

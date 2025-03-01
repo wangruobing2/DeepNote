@@ -1,0 +1,16 @@
+model:
+  OPENAI_API_KEY: ""
+  OPENAI_BASE_URL: ""
+  llama-3.1-8b-instruct: "meta-llama/Llama-3.1-8B-Instruct"
+  llama-3.1-8b-instruct-dpo: ""
+  llama-3.1-70b-instruct: "meta-llama/Llama-3.1-70B-Instruct"
+  qwen2.5-7b-instruct: "Qwen/Qwen2.5-7B-Instruct"
+  qwen2.5-7b-instruct-dpo: ""
+  bge-base-en-v1.5: "BAAI/bge-base-en-v1.5"
+  gtr-t5-xxl: "sentence-transformers/gtr-t5-xxl"
+es:
+  url: "http://localhost:9200"
+
+score: 
+  init_note: 'Task: You will receive a list of notes generated based on a given document content and question. \nYour task is to evaluate and score these notes based on their quality. Quality refers to: relevance, coherence, completeness in answering the specified question, and accuracy of information. \n\nQuestion to be answered: {query}\nDocument content: {refs}\n\nGenerated notes: {notes}\nNote format: Each note contains "_id" and "content" fields. \n\nEvaluate the generated notes. The highest-scoring note must be factually correct based on the document. If no note is correct, or if there is minimal quality difference between notes, use the same _id for both best and worst. \nOutput in the following JSON format:\n```json {{"best_id": <_id of the highest-scoring note>, "worst_id": <_id of the lowest-scoring note>}}```\n\n Do not include any explanations or additional text.'
+  gen_new_query: 'Task: You will receive a list of new questions generated based on some notes and an existing question list to supplement a given original question.\nYour task is to evaluate these new questions based on their quality. Quality refers to: relevance, specificity, keyword richness, and non-redundancy. The goal is to identify questions that can retrieve useful information to help answer the original question. \n Notes: {notes}\n\nOriginal question: {query}\n\nExisting question list: {query_log}\n\nNew question list: {new_querys}\nQuestion format: Each question contains "_id" and "content" fields. \n\nEvaluate the new question list. The highest-scoring new question must be able to help retrieve relevant information to answer the original question. If no new question can help get useful information, or if there is minimal quality difference between new questions, use the same _id for both best_id and worst_id. \nOutput in the following format:\n```json {{"best_id": <_id of the highest-scoring question>, "worst_id": <_id of the lowest-scoring question>}}```\n\n Do not include any explanations or additional text.'

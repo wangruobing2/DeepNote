@@ -4,7 +4,7 @@
 
 
 We develop **DeepNote**, an adaptive RAG framework that achieves in-depth
-and robust exploration of knowledge sources through note-centric adaptive retrieval. DeepNote employs notes as carriers for refining and accumulating knowledge. During in-depth exploration, it uses these notes to determine retrieval timing, formulate retrieval queries, and iteratively evaluate knowledge growth, ultimately leveraging the best note for answer generation.
+and robust exploration of knowledge sources through note-centric adaptive retrieval. DeepNote employs notes as carriers for refining and accumulating knowledge. During in-depth exploration, it uses these notes to determine retrieval timing, formulate retrieval queries, and iteratively assess knowledge growth, ultimately leveraging the best note for answer generation.
 
 ![RNote](assets/DeepNote.png)
 
@@ -18,7 +18,7 @@ We use Wikipedia as the corpus for ASQA and StrategyQA. Due to its large size, p
 
 For different datasets, we employ various retrieval methods:
 
-For 2WikiMultiQA, MuSiQue, and HotpotQA:
+For 2WikiMQA, MusiQue, and HotpotQA:
 - BM25 retrieval based on ElasticSearch
 - Dense retrieval with FAISS index using embeddings from BGE model
 
@@ -44,10 +44,10 @@ pkill -f elasticsearch # To stop the server
 ```bash
 cd src/build_index/es
 
-# 2WikiMultiQA
+# 2WikiMQA
 python index_2wiki.py
 
-# MuSiQue
+# MusiQue
 python index_musique.py
 
 # HotpotQA
@@ -56,7 +56,7 @@ python index_hotpotqa.py
 
 ### For Dense Retrieval
 
-#### For HotpotQA, 2WikiMultiQA, and MuSiQue
+#### For HotpotQA, 2WikiMQA, and MusiQue
 ```bash
 cd src/build_index/emb
 python index.py --dataset hotpotqa --model bge-base-en-v1.5 # e.g., for HotpotQA dataset
